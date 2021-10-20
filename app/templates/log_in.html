@@ -1,0 +1,37 @@
+{% extends "base.html"%}
+
+{% block title %}
+    G-Notes - LogIn Page
+{% endblock %}
+
+{% block section %}
+    <form method="POST" class="form-bg" style="padding-top: 0; overflow: hidden;">
+        {{ form.hidden_tag() }}
+        
+        <h2>Sign In</h2>
+        {{ form.username(class="form-control", placeholder="Username") }}
+        {{ form.username.label() }}
+
+        {{ form.email_address(class="form-control", placeholder="Email") }}
+        {{ form.email_address.label() }}
+
+        {{ form.password(class="form-control", placeholder="Password") }}
+        {{ form.password.label() }}
+
+        {{ form.submit(class="btn btn-warning", style="display:block; margin: auto;") }}
+
+        <div style="text-align: center;">
+            <p style="margin: 20px 0 5px 0; font-size: .9rem;">Do not have an account?</p>
+            <a href="{{ url_for('sign_up_page')}}" class="btn btn-light", style="font-size: .8em;">Create Account</a>
+        </div>
+    </form>
+{% endblock %}
+
+{% block css%}
+    h2 {
+        background: #f5f5f5;
+        border-bottom: 1px solid #e6e6e6;
+        padding: 15px 50px;
+        margin: 0 -50px 50px;
+    }
+{% endblock %}

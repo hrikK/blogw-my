@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}
+    G-Notes - Account
+{% endblock %}
+
+{% block section %}
+    <form method="post" enctype="multipart/form-data">
+        {{ change_info.hidden_tag() }}
+        <img class="rounded mx-auto d-block rounded-circle" src="{{ display_image }}" alt="profile.jpg" height="210px" width="220px" style="margin: 1.5rem auto;">
+        
+        {{ change_info.change_pic.label() }}
+        {{ change_info.change_pic(class="") }}
+        <button type="submit" class="btn btn-info" id="update_pic" name="update_pic" style="padding: 1px 6px;">Update</button>
+    </form>
+    <h2>Welcome <span class="badge badge-info">@{{ current_user.username }}</span></h2>
+        <div class="input-group mb-3 input-group-lg">
+            <div class="input-group-prepend">
+              <span class="input-group-text">First and last name</span>
+            </div>
+            <input type="text" aria-label="First name" class="form-control" value="{{ current_user.firstName }}" readonly>
+            <input type="text" aria-label="Last name" class="form-control" value="{{ current_user.lastName }}" readonly>
+        </div>
+    <form method="POST">
+        {{ change_info.hidden_tag() }}
+        <div class="input-group mb-3 input-group-lg">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">Username</span>
+            </div>
+            <input class="form-control" id="chang_username" name="change_username" placeholder="Username" type="text" value="{{ current_user.username}}">
+            <button name="submit_username" id="submit_username" type="submit" class="btn btn-success">Save</button>
+        </div>
+        <div class="input-group mb-3 input-group-lg">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">Email</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" value=" {{ current_user.email }}" readonly>
+        </div>
+    </form>
+    {% include "modals/change_pass.html" %}
+    <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#change-pass">Change Password</button>
+
+{% endblock %}
+
+{% block css%}
+    input:read-only {
+        background-color: transparent!important;
+    }
+{% endblock %}

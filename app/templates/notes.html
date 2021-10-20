@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}
+    G-log - Notes
+{% endblock %}
+
+{% block section %}
+
+    <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-around; padding: 1rem 2.5rem">
+        {% for i in notes %}
+        {% include "modals/delete_note.html" %}
+            <div class="card bg-light mb-3 border-primary" style="max-width: 18rem; margin: 3rem 2rem">
+                <div class="card-body">
+                    <div class="card-header" style="padding: 0; display: flex;">
+                        <input class="card-header" value="{{ i.title }}" style="padding-right: 0;" readonly>
+                        <button type="button" class="close btn btn-danger" data-toggle="modal" data-target="#delete-confirm-{{ i.id }}">
+                            <span>&times;</span>
+                        </button>
+                    </div>
+                    <textarea rows="8" class="bg-light" style="resize: none;" readonly>{{ i.data }}</textarea>
+                    <div style="color: rgba(0, 0, 0, .5); padding: .2rem 2rem">Created: {{ i.date }}</div>
+                </div>
+            </div>
+        {% endfor %}
+            <form method="POST" style="display: flex; flex-direction: column; margin: 3rem 2rem;">
+                {{ note_form.hidden_tag()}}
+                    <div class="card bg-light mb-3" style="max-width: 18rem; margin-bottom: 0!important;">
+                        <div class="card-body">
+                            {{ note_form.title(class="card-header", placeholder="Title", autocomplete="off") }}
+                            {{ note_form.data(class="bg-light", placeholder="Type your note here.", rows="8")}}
+                        </div>
+                    </div>
+                    {{ note_form.add_note(class="btn btn-success")}}
+                </div>
+            </form>
+    </div>
+{% endblock %}
+
+{% block css %}
+    .card {
+        margin: 3rem auto;
+    }
+    input, textarea {
+        border: 0;
+        outline: 0;
+    }
+    .card-body {
+        padding: 0;
+    }
+    textarea {
+        width: 100%;
+        padding: .5rem .75rem;
+        font-size: 1.1rem;
+    }
+    input {
+        font-size: 1.4rem;
+    }
+{% endblock %}

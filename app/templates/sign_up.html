@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}
+    G-Notes - SignUp Page
+{% endblock %}
+
+{% block section %}
+    <form method="POST" class="form-bg">
+        {{ form.hidden_tag() }}
+        
+        <h2>Create your new account for free.</h2>
+        <div class="row" style="margin: 0; justify-content: space-between;">
+            <div style="width: 48%;">
+                {{ form.firstName(class="form-control", placeholder="First Name", style="")}}
+                {{ form.firstName.label() }}
+            </div>
+
+            <div style="width: 48%;">
+                {{ form.lastName(class="form-control", placeholder="Last Name", style="") }}
+                {{ form.lastName.label()}}
+            </div>
+        </div>
+        {{ form.username(class="form-control", placeholder="Username") }}
+        {{ form.username.label() }}
+
+        {{ form.email_address(class="form-control", placeholder="Email") }}
+        {{ form.email_address.label() }}
+
+        {{ form.password(class="form-control", placeholder="Password") }}
+        {{ form.password.label() }}
+
+        {{ form.confirm_password(class="form-control", placeholder="Confirm Password") }}
+        {{ form.confirm_password.label() }}
+
+        {{ form.submit(class="btn btn-warning", style="display:block; margin: auto;") }}
+        <div style="text-align: center;">
+            <p style="margin: 20px 0 5px 0; font-size: .9rem;">Already have an account?</p>
+            <a href="{{ url_for('log_in_page')}}" class="btn btn-light", style="font-size: .8em;">Log In</a>
+        </div>
+    </form>
+{% endblock %}
+
+{% block css %}
+
+{% endblock %}

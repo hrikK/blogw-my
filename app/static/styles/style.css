@@ -1,0 +1,40 @@
+
+body {
+    background-color: rgba(255, 193, 7, 0.4);;
+}
+.bg-navbar {
+    justify-content: space-between;
+    background-color: white;
+    margin-bottom: 0!important;
+}
+.sign-up {
+    border-radius: 20px;
+    background-color: white
+}
+h2 {
+    font-weight: 100;
+    text-align: center;
+    line-height: 1.4em;
+    margin-bottom: 30px;
+}
+
+.form-bg {
+    background-color: white;
+    padding: 2.5rem 3.2rem;
+    border-radius: 20px;
+    width: 40%;
+    margin: 60px auto;
+}
+label {
+    font-size: 1rem;
+    color: #9098a5;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+}
+.form-control {
+    font-size: 18px;
+    padding: .5rem .75rem;
+    letter-spacing: 1px;
+    color: #4b525b;
+    font-weight: 400;
+}
